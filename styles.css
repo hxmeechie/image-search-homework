@@ -1,0 +1,115 @@
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: rgba(18, 18, 18, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: rgba(30, 30, 30, 1);
+  border-radius: 1.25em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 50px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  max-width: 100%;
+  width: 55%;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem auto;
+  height: 3rem;
+  width: 85%;
+  border-radius: 40px;
+  padding: 0 0 0 20px;
+  position: relative;
+  background: #fff;
+}
+
+.hint {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+.searchImage[src=""] {
+  display: none;
+}
+
+.searchImage {
+  max-width: 100%;
+  max-height: 300px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(144, 202, 249, 1);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchButton.text {
+  display: block;
+}
+
+.searchButton {
+  background-color: rgba(144, 202, 249, 1);
+  color: rgba(19, 26, 32, 1);
+  position: relative;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.searchButton.loading .searchButton.text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.searchButton:hover {
+  background-color: rgba(66, 165, 245, 1);
+}
+
+.searchButton:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.searchButton.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
