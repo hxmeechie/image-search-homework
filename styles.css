@@ -19,8 +19,7 @@ body {
   padding: 50px 20px;
   box-sizing: border-box;
   text-align: center;
-  max-width: 100%;
-  width: 55%;
+  width: 90%;
 }
 
 .searchBar {
