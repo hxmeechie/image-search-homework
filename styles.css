@@ -1,42 +1,55 @@
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  background-color: rgba(18, 18, 18, 1);
+  background-color: rgb(18, 18, 18);
+  color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
   padding: 20px;
-  position: relative;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.searchBar,
+.easterEggButton,
+.searchButton {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .container {
-  background-color: rgba(30, 30, 30, 1);
+  margin-bottom: 0.35em;
+  user-select: none;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-color: rgb(18, 18, 18);
   border-radius: 1.25em;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-  padding: 50px 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 1px 0px, rgba(0, 0, 0, 0.12) 0px 4px 3px 0px;
+  padding: 24px;
   box-sizing: border-box;
   text-align: center;
 }
 
 .searchBar {
   display: flex;
-  align-items: center;
   text-align: center;
   margin: 2rem auto;
   height: 3rem;
   width: 85%;
   border-radius: 40px;
-  padding: 0 0 0 20px;
+  padding-left: 20px;
   position: relative;
-  background: #fff;
+  background: rgb(255, 255, 255);
+  color: rgb(18, 18, 18);
 }
 
 .hint {
   font-size: 1.5rem;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   line-height: 1.2;
   margin: 2rem auto;
@@ -52,25 +65,40 @@ body {
   max-height: 300px;
   position: relative;
   overflow: hidden;
-  border: 2px solid rgba(144, 202, 249, 1);
+  border: 2px solid rgb(144, 202, 249);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 1px 0px, rgba(0, 0, 0, 0.12) 0px 4px 3px 0px;
 }
 
-.searchButton.text {
-  display: block;
-}
-
+.easterEggButton,
 .searchButton {
-  background-color: rgba(144, 202, 249, 1);
-  color: rgba(19, 26, 32, 1);
+  display: inline-flex;
+  align-items: center;
   position: relative;
+  box-sizing: border-box;
+  outline: 0;
   border: none;
-  border-radius: 1000px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
+  margin: 0;
   cursor: pointer;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(144, 202, 249);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0;
 }
 
 .searchButton.loading .searchButton.text {
@@ -78,13 +106,17 @@ body {
   opacity: 0;
 }
 
-.searchButton:hover {
-  background-color: rgba(66, 165, 245, 1);
+:where(.searchButton, .easterEggButton):hover {
+  text-decoration: none;
+  background-color: rgb(66, 165, 245);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 }
 
-.searchButton:active {
+:where(.searchButton, .easterEggButton):active {
   transform: scale(0.98);
-  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px,
+    rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
 }
 
 .searchButton.loading::after {
@@ -98,7 +130,7 @@ body {
   bottom: 0;
   margin: auto;
   border: 4px solid transparent;
-  border-top-color: #ffffff;
+  border-top-color: rgb(255, 255, 255);
   border-radius: 50%;
   animation: button-loading-spinner 1s ease infinite;
 }

@@ -11,6 +11,8 @@ const changeButtonState = (state) => {
   searchButton.disabled = state;
 };
 
+const openEasterEgg = () => window.open("https://www.youtube.com/watch?v=xdQ3YGi8USM", "_blank");
+
 const scrapeImage = async () => {
   const searchInput = document.querySelector(".searchBar").value;
   if (searchInput.length === 0) return;
@@ -22,11 +24,10 @@ const scrapeImage = async () => {
     safe: "active",
     q: searchInput,
   });
-  const response = await fetch(
-    `https://corsproxy.io/?https://www.google.com/search?${searchParams}`
-  );
+  const response = await fetch(`https://corsproxy.io/?https://www.google.com/search?${searchParams}`);
 
   if (!response.ok) return;
+
   const data = await response.text();
   const { ischj } = JSON.parse(data.slice(data.indexOf("{")));
   if (Object.keys(ischj).length === 0) return;
